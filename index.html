@@ -38,8 +38,7 @@
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
-
-  <!-- Navbar -->
+  
   <nav class="bg-black/95 backdrop-blur-md border-b border-zinc-800 fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-8">
@@ -62,11 +61,11 @@
     </div>
   </nav>
 
-  <!-- ==================== СЛАЙДЕР С АВТОПЕРЕКЛЮЧЕНИЕМ ==================== -->
+  
   <section id="heroSlider" class="relative h-screen overflow-hidden pt-16">
     <div id="slides" class="absolute inset-0">
 
-      <!-- 1. Oppenheimer -->
+      
       <div class="hero-slide absolute inset-0 hero-bg flex items-center" 
            style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), url('img/oppenheimermain.jpg')">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -85,7 +84,7 @@
         </div>
       </div>
 
-      <!-- 2. The Batman -->
+      
       <div class="hero-slide absolute inset-0 hero-bg flex items-center opacity-0" 
            style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), url('img/batman.png')">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -103,7 +102,7 @@
         </div>
       </div>
 
-      <!-- 3. Dune Part Two -->
+      
       <div class="hero-slide absolute inset-0 hero-bg flex items-center opacity-0" 
            style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), url('img/dune2024.jpg')">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -116,7 +115,7 @@
       </div>
     </div>
 
-    <!-- Стрелки -->
+    
     <button onclick="prevSlide()" 
             class="absolute left-8 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black p-6 rounded-full z-30 text-4xl transition">
       <i class="fas fa-chevron-left"></i>
@@ -157,12 +156,12 @@
       </div>
     </div>
 
-    <!-- Movies Grid -->
+    
     <div id="moviesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"></div>
   </main>
 
   <script>
-    const movies = [ /* тот же массив */ 
+    const movies = [ 
       { id: 1, title: "Oppenheimer", genre: "biography", rating: 8.3, duration: "3ч", img: "img/oppenheimer.jpg" },
       { id: 2, title: "Reacher", genre: "action", rating: 8.1, duration: "50м", img: "img/reacher.jpg" },
       { id: 3, title: "House of the Dragon", genre: "fantasy", rating: 8.5, duration: "1ч", img: "img/houseofdragons.jpg" },
@@ -179,7 +178,7 @@
     let currentGenre = 'all';
     let isFavoritesMode = false;
 
-    // Слайдер
+    
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slide');
     let autoSlideInterval;
@@ -216,14 +215,14 @@
       }
     }
 
-    // Автопереключение
+    
     function startAutoSlide() {
       autoSlideInterval = setInterval(() => {
         nextSlide();
-      }, 5000); // каждые 5 секунд
+      }, 5000); 
     }
 
-    // Избранное, фильтры и т.д.
+    
     function saveFavorites() {
       localStorage.setItem('favorites', JSON.stringify(favorites));
       document.getElementById('favCount').textContent = favorites.length;
@@ -294,15 +293,15 @@
       filterContent();
     }
 
-    // Инициализация
+    
     window.onload = () => {
       document.getElementById('favCount').textContent = favorites.length;
       showSlide(0);
-      startAutoSlide();        // Запуск автопереключения
+      startAutoSlide();        
       renderMovies(movies);
     };
 
-    // Обработчики
+    
     document.getElementById('searchInput').addEventListener('input', filterContent);
     document.querySelectorAll('.genre-btn').forEach(btn => {
       btn.addEventListener('click', () => {
